@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Source:</strong>
+  <%= @alert.source_id %>
+</p>
+
+<p>
+  <strong>Source type:</strong>
+  <%= @alert.source_type %>
+</p>
+
+<p>
+  <strong>Target:</strong>
+  <%= @alert.target_id %>
+</p>
+
+<p>
+  <strong>Target type:</strong>
+  <%= @alert.target_type %>
+</p>
+
+<p>
+  <strong>Source url:</strong>
+  <%= @alert.source_url %>
+</p>
+
+<p>
+  <strong>Target url:</strong>
+  <%= @alert.target_url %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @alert.message %>
+</p>
+
+<%= link_to 'Edit', edit_alert_path(@alert) %> |
+<%= link_to 'Back', alerts_path %>

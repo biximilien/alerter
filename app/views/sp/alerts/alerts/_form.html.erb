@@ -1,0 +1,52 @@
+<%= form_for(alert) do |f| %>
+  <% if alert.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(alert.errors.count, "error") %> prohibited this alert from being saved:</h2>
+
+      <ul>
+      <% alert.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :source_id %>
+    <%= f.number_field :source_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :source_type %>
+    <%= f.text_field :source_type %>
+  </div>
+
+  <div class="field">
+    <%= f.label :target_id %>
+    <%= f.number_field :target_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :target_type %>
+    <%= f.text_field :target_type %>
+  </div>
+
+  <div class="field">
+    <%= f.label :source_url %>
+    <%= f.text_field :source_url %>
+  </div>
+
+  <div class="field">
+    <%= f.label :target_url %>
+    <%= f.text_field :target_url %>
+  </div>
+
+  <div class="field">
+    <%= f.label :message %>
+    <%= f.text_field :message %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
