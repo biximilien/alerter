@@ -1,0 +1,393 @@
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (8.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateSpAlertsAlerts (20160804205958)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "sp_alerts_alerts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "source_id" integer, "source_type" varchar, "target_id" integer, "target_type" varchar, "source_url" varchar, "target_url" varchar, "message" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160804205958"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", 2016-08-04 21:06:23 UTC], ["updated_at", 2016-08-04 21:06:23 UTC]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.7ms)[0m  [1m[31mDELETE FROM "sp_alerts_alerts"[0m
+  [1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO "sp_alerts_alerts" ("source_id", "source_type", "target_id", "target_type", "source_url", "target_url", "message", "created_at", "updated_at", "id") VALUES (1, 'MyString', 1, 'MyString', 'MyString', 'MyString', 'MyString', '2016-08-04 21:27:23.938614', '2016-08-04 21:27:23.938614', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "sp_alerts_alerts" ("source_id", "source_type", "target_id", "target_type", "source_url", "target_url", "message", "created_at", "updated_at", "id") VALUES (1, 'MyString', 1, 'MyString', 'MyString', 'MyString', 'MyString', '2016-08-04 21:27:23.938614', '2016-08-04 21:27:23.938614', 298486374)[0m
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------
+SP::Alerts::Test: test_truth
+----------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_get_edit
+------------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.3ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/alerts/alerts/980190962/edit" for 127.0.0.1 at 2016-08-04 17:27:24 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_create_alert
+----------------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.1ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "sp_alerts_alerts"[0m
+Started POST "/alerts/alerts" for 127.0.0.1 at 2016-08-04 17:27:24 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_destroy_alert
+-----------------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.1ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "sp_alerts_alerts"[0m
+Started DELETE "/alerts/alerts/980190962" for 127.0.0.1 at 2016-08-04 17:27:24 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_get_new
+-----------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.2ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/alerts/alerts/new" for 127.0.0.1 at 2016-08-04 17:27:24 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_update_alert
+----------------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.1ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started PATCH "/alerts/alerts/980190962" for 127.0.0.1 at 2016-08-04 17:27:24 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_show_alert
+--------------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.2ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/alerts/alerts/980190962" for 127.0.0.1 at 2016-08-04 17:27:24 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_get_index
+-------------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.2ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/alerts/alerts" for 127.0.0.1 at 2016-08-04 17:27:24 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.4ms)[0m  [1m[31mDELETE FROM "sp_alerts_alerts"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "sp_alerts_alerts" ("source_id", "source_type", "target_id", "target_type", "source_url", "target_url", "message", "created_at", "updated_at", "id") VALUES (1, 'MyString', 1, 'MyString', 'MyString', 'MyString', 'MyString', '2016-08-04 21:31:09.501074', '2016-08-04 21:31:09.501074', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "sp_alerts_alerts" ("source_id", "source_type", "target_id", "target_type", "source_url", "target_url", "message", "created_at", "updated_at", "id") VALUES (1, 'MyString', 1, 'MyString', 'MyString', 'MyString', 'MyString', '2016-08-04 21:31:09.501074', '2016-08-04 21:31:09.501074', 298486374)[0m
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------
+SP::Alerts::Test: test_truth
+----------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_show_alert
+--------------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.3ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/alerts/alerts/980190962" for 127.0.0.1 at 2016-08-04 17:31:10 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_get_new
+-----------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.2ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/alerts/alerts/new" for 127.0.0.1 at 2016-08-04 17:31:10 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_destroy_alert
+-----------------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.1ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "sp_alerts_alerts"[0m
+Started DELETE "/alerts/alerts/980190962" for 127.0.0.1 at 2016-08-04 17:31:10 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_create_alert
+----------------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.1ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "sp_alerts_alerts"[0m
+Started POST "/alerts/alerts" for 127.0.0.1 at 2016-08-04 17:31:10 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_get_edit
+------------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.1ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/alerts/alerts/980190962/edit" for 127.0.0.1 at 2016-08-04 17:31:10 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_get_index
+-------------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.1ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/alerts/alerts" for 127.0.0.1 at 2016-08-04 17:31:10 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_update_alert
+----------------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.1ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started PATCH "/alerts/alerts/980190962" for 127.0.0.1 at 2016-08-04 17:31:10 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.4ms)[0m  [1m[31mDELETE FROM "sp_alerts_alerts"[0m
+  [1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO "sp_alerts_alerts" ("source_id", "source_type", "target_id", "target_type", "source_url", "target_url", "message", "created_at", "updated_at", "id") VALUES (1, 'MyString', 1, 'MyString', 'MyString', 'MyString', 'MyString', '2016-08-04 21:34:19.072866', '2016-08-04 21:34:19.072866', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "sp_alerts_alerts" ("source_id", "source_type", "target_id", "target_type", "source_url", "target_url", "message", "created_at", "updated_at", "id") VALUES (1, 'MyString', 1, 'MyString', 'MyString', 'MyString', 'MyString', '2016-08-04 21:34:19.072866', '2016-08-04 21:34:19.072866', 298486374)[0m
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------
+SP::Alerts::Test: test_truth
+----------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_get_index
+-------------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.3ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/alerts/alerts" for 127.0.0.1 at 2016-08-04 17:34:19 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_get_new
+-----------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.1ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/alerts/alerts/new" for 127.0.0.1 at 2016-08-04 17:34:19 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_destroy_alert
+-----------------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.1ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "sp_alerts_alerts"[0m
+Started DELETE "/alerts/alerts/980190962" for 127.0.0.1 at 2016-08-04 17:34:19 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_get_edit
+------------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.2ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/alerts/alerts/980190962/edit" for 127.0.0.1 at 2016-08-04 17:34:19 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_show_alert
+--------------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.2ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/alerts/alerts/980190962" for 127.0.0.1 at 2016-08-04 17:34:19 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_update_alert
+----------------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.1ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started PATCH "/alerts/alerts/980190962" for 127.0.0.1 at 2016-08-04 17:34:19 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_create_alert
+----------------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.1ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "sp_alerts_alerts"[0m
+Started POST "/alerts/alerts" for 127.0.0.1 at 2016-08-04 17:34:19 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.6ms)[0m  [1m[31mDELETE FROM "sp_alerts_alerts"[0m
+  [1m[36mFixture Insert (0.4ms)[0m  [1m[32mINSERT INTO "sp_alerts_alerts" ("source_id", "source_type", "target_id", "target_type", "source_url", "target_url", "message", "created_at", "updated_at", "id") VALUES (1, 'MyString', 1, 'MyString', 'MyString', 'MyString', 'MyString', '2016-08-04 21:40:31.259590', '2016-08-04 21:40:31.259590', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "sp_alerts_alerts" ("source_id", "source_type", "target_id", "target_type", "source_url", "target_url", "message", "created_at", "updated_at", "id") VALUES (1, 'MyString', 1, 'MyString', 'MyString', 'MyString', 'MyString', '2016-08-04 21:40:31.259590', '2016-08-04 21:40:31.259590', 298486374)[0m
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+----------------------------
+SP::Alerts::Test: test_truth
+----------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_show_alert
+--------------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.3ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/alerts/alerts/980190962" for 127.0.0.1 at 2016-08-04 17:40:32 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_get_edit
+------------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (3.6ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/alerts/alerts/980190962/edit" for 127.0.0.1 at 2016-08-04 17:40:32 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_get_index
+-------------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.3ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/alerts/alerts" for 127.0.0.1 at 2016-08-04 17:40:32 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_create_alert
+----------------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.2ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (9.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "sp_alerts_alerts"[0m
+Started POST "/alerts/alerts" for 127.0.0.1 at 2016-08-04 17:40:32 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_get_new
+-----------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.2ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/alerts/alerts/new" for 127.0.0.1 at 2016-08-04 17:40:32 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_destroy_alert
+-----------------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.9ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "sp_alerts_alerts"[0m
+Started DELETE "/alerts/alerts/980190962" for 127.0.0.1 at 2016-08-04 17:40:32 -0400
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_update_alert
+----------------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.2ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started PATCH "/alerts/alerts/980190962" for 127.0.0.1 at 2016-08-04 17:40:32 -0400
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.4ms)[0m  [1m[31mDELETE FROM "sp_alerts_alerts"[0m
+  [1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO "sp_alerts_alerts" ("source_id", "source_type", "target_id", "target_type", "source_url", "target_url", "message", "created_at", "updated_at", "id") VALUES (1, 'MyString', 1, 'MyString', 'MyString', 'MyString', 'MyString', '2016-08-04 21:41:07.050054', '2016-08-04 21:41:07.050054', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "sp_alerts_alerts" ("source_id", "source_type", "target_id", "target_type", "source_url", "target_url", "message", "created_at", "updated_at", "id") VALUES (1, 'MyString', 1, 'MyString', 'MyString', 'MyString', 'MyString', '2016-08-04 21:41:07.050054', '2016-08-04 21:41:07.050054', 298486374)[0m
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------
+SP::Alerts::Test: test_truth
+----------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_create_alert
+----------------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.3ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "sp_alerts_alerts"[0m
+Started POST "/alerts/alerts" for 127.0.0.1 at 2016-08-04 17:41:07 -0400
+Processing by SP::Alerts::AlertsController#create as HTML
+  Parameters: {"alert"=>{"message"=>"MyString", "source_id"=>"1", "source_type"=>"MyString", "source_url"=>"MyString", "target_id"=>"1", "target_type"=>"MyString", "target_url"=>"MyString"}}
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "sp_alerts_alerts" ("source_id", "source_type", "target_id", "target_type", "source_url", "target_url", "message", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["source_id", 1], ["source_type", "MyString"], ["target_id", 1], ["target_type", "MyString"], ["source_url", "MyString"], ["target_url", "MyString"], ["message", "MyString"], ["created_at", 2016-08-04 21:41:07 UTC], ["updated_at", 2016-08-04 21:41:07 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/alerts/alerts/980190963
+Completed 302 Found in 45ms (ActiveRecord: 0.6ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "sp_alerts_alerts"[0m
+  [1m[36mSP::Alerts::Alert Load (0.3ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" ORDER BY "sp_alerts_alerts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (17.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_update_alert
+----------------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.2ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started PATCH "/alerts/alerts/980190962" for 127.0.0.1 at 2016-08-04 17:41:07 -0400
+Processing by SP::Alerts::AlertsController#update as HTML
+  Parameters: {"alert"=>{"message"=>"MyString", "source_id"=>"1", "source_type"=>"MyString", "source_url"=>"MyString", "target_id"=>"1", "target_type"=>"MyString", "target_url"=>"MyString"}, "id"=>"980190962"}
+  [1m[36mSP::Alerts::Alert Load (0.1ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/alerts/alerts/980190962
+Completed 302 Found in 31ms (ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_get_index
+-------------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.2ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/alerts/alerts" for 127.0.0.1 at 2016-08-04 17:41:07 -0400
+Processing by SP::Alerts::AlertsController#index as HTML
+  Rendering /Users/biximilien/Projects/SP/sp_alerts/app/views/sp/alerts/alerts/index.html.erb
+  [1m[36mSP::Alerts::Alert Load (0.2ms)[0m  [1m[34mSELECT "sp_alerts_alerts".* FROM "sp_alerts_alerts"[0m
+  Rendered /Users/biximilien/Projects/SP/sp_alerts/app/views/sp/alerts/alerts/index.html.erb (6.3ms)
+Completed 200 OK in 64ms (Views: 41.6ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_show_alert
+--------------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.1ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/alerts/alerts/980190962" for 127.0.0.1 at 2016-08-04 17:41:07 -0400
+Processing by SP::Alerts::AlertsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mSP::Alerts::Alert Load (0.1ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  Rendering /Users/biximilien/Projects/SP/sp_alerts/app/views/sp/alerts/alerts/show.html.erb
+  Rendered /Users/biximilien/Projects/SP/sp_alerts/app/views/sp/alerts/alerts/show.html.erb (1.9ms)
+Completed 200 OK in 19ms (Views: 12.9ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_get_edit
+------------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.1ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/alerts/alerts/980190962/edit" for 127.0.0.1 at 2016-08-04 17:41:07 -0400
+Processing by SP::Alerts::AlertsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mSP::Alerts::Alert Load (0.1ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  Rendering /Users/biximilien/Projects/SP/sp_alerts/app/views/sp/alerts/alerts/edit.html.erb
+  Rendered /Users/biximilien/Projects/SP/sp_alerts/app/views/sp/alerts/alerts/_form.html.erb (157.7ms)
+  Rendered /Users/biximilien/Projects/SP/sp_alerts/app/views/sp/alerts/alerts/edit.html.erb (163.8ms)
+Completed 200 OK in 185ms (Views: 176.4ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_get_new
+-----------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.2ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/alerts/alerts/new" for 127.0.0.1 at 2016-08-04 17:41:08 -0400
+Processing by SP::Alerts::AlertsController#new as HTML
+  Rendering /Users/biximilien/Projects/SP/sp_alerts/app/views/sp/alerts/alerts/new.html.erb
+  Rendered /Users/biximilien/Projects/SP/sp_alerts/app/views/sp/alerts/alerts/_form.html.erb (17.1ms)
+  Rendered /Users/biximilien/Projects/SP/sp_alerts/app/views/sp/alerts/alerts/new.html.erb (22.2ms)
+Completed 200 OK in 50ms (Views: 33.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------------------------------
+SP::Alerts::AlertsControllerTest: test_should_destroy_alert
+-----------------------------------------------------------
+  [1m[36mSP::Alerts::Alert Load (0.1ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "sp_alerts_alerts"[0m
+Started DELETE "/alerts/alerts/980190962" for 127.0.0.1 at 2016-08-04 17:41:08 -0400
+Processing by SP::Alerts::AlertsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mSP::Alerts::Alert Load (0.2ms)[0m  [1m[34mSELECT  "sp_alerts_alerts".* FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "sp_alerts_alerts" WHERE "sp_alerts_alerts"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/alerts/alerts
+Completed 302 Found in 3ms (ActiveRecord: 0.7ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "sp_alerts_alerts"[0m
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (19.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", :environment]]
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "sp_alerts_alerts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "source_id" integer, "source_type" varchar, "target_id" integer, "target_type" varchar, "source_url" varchar, "target_url" varchar, "message" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES ('20160804205958')[0m
+  [1m[35m (11.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", 2016-08-05 15:51:13 UTC], ["updated_at", 2016-08-05 15:51:13 UTC]]
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m

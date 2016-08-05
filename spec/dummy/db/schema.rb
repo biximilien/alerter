@@ -12,12 +12,12 @@
 
 ActiveRecord::Schema.define(version: 20160804205958) do
 
-  create_table "sp_alerts_alerts", force: :cascade do |t|
+  create_table "alerts", force: :cascade do |t|
     t.integer  "source_id"
     t.string   "source_type"
+    t.string   "source_url"
     t.integer  "target_id"
     t.string   "target_type"
-    t.string   "source_url"
     t.string   "target_url"
     t.string   "message"
     t.datetime "created_at",  null: false
