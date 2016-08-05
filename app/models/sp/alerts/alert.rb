@@ -1,19 +1,20 @@
 module SP::Alerts
   class Alert < ApplicationRecord
 
-    validates :source_id,
+    belongs_to :source,
+      polymorphic: true
+
+    belongs_to :target,
+      polymorphic: true
+
+    belongs_to :object,
+      polymorphic: true
+
+    validates :source,
       presence: true
 
-    validates :target_id,
+    validates :target,
       presence: true
-
-    validates :source_type,
-      presence: true,
-      allow_blank: false
-
-    validates :target_type,
-      presence: true,
-      allow_blank: false
 
     validates :source_url,
       presence: true,
@@ -25,6 +26,14 @@ module SP::Alerts
 
     validates :message,
       presence: true,
+      allow_blank: false
+
+    validates :object,
+      presence: false,
+      allow_blank: false
+
+    validates :object_url,
+      presence: false,
       allow_blank: false
 
   end
