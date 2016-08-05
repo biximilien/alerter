@@ -1,14 +1,26 @@
-# SpAlerts
-Short description and motivation.
+# Alerts
+
+A restful alert system for the SP project.
 
 ## Usage
-How to use my plugin.
+
+```ruby
+class Person < ActiveRecord::Base
+  alertable
+end
+
+alice = Person.new
+bob = Person.new
+
+
+alice.alert(:new_follower, bob)
+```
 
 ## Installation
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'sp_alerts'
+gem 'alerts'
 ```
 
 And then execute:
@@ -18,7 +30,7 @@ $ bundle
 
 Or install it yourself as:
 ```bash
-$ gem install sp_alerts
+$ gem install alerts
 ```
 
 ## Contributing
