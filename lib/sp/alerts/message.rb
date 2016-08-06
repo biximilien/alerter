@@ -1,6 +1,9 @@
+require 'redcarpet'
+
 module SP::Alerts::Message
 
-  @@markdown = Redcarpet::Markdown.new
+  @@markdown = ::Redcarpet::Markdown.new(
+    Redcarpet::Render::HTML, autolink: true)
 
   attr_reader :source, :target, :source_url, :target_url
 
