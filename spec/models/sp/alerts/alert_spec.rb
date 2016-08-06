@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 RSpec.describe SP::Alerts::Alert, type: :model do
   it { should belong_to :source }

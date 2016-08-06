@@ -1,5 +1,6 @@
 module SP::Alerts
   class Alert < ApplicationRecord
+    self.table_name = "alerts"
 
     belongs_to :source,
       polymorphic: true

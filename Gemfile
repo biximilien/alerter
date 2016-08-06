@@ -15,3 +15,7 @@ gem 'byebug', group: [:development, :test]
 
 # PRY
 gem 'pry'
+
+group :test do
+  gem "shoulda-matchers"
+end
