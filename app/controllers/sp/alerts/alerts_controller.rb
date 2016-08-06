@@ -2,7 +2,7 @@ require_dependency "sp/alerts/application_controller"
 
 module SP::Alerts
   class AlertsController < ApplicationController
-    before_action :set_alert, only: [:show, :edit, :update, :destroy]
+    before_action :set_alert, only: [:show, :destroy]
 
     # GET /alerts
     def index
@@ -13,35 +13,6 @@ module SP::Alerts
     def show
     end
 
-    # GET /alerts/new
-    def new
-      @alert = Alert.new
-    end
-
-    # GET /alerts/1/edit
-    def edit
-    end
-
-    # POST /alerts
-    def create
-      @alert = Alert.new(alert_params)
-
-      if @alert.save
-        redirect_to @alert, notice: 'Alert was successfully created.'
-      else
-        render :new
-      end
-    end
-
-    # PATCH/PUT /alerts/1
-    def update
-      if @alert.update(alert_params)
-        redirect_to @alert, notice: 'Alert was successfully updated.'
-      else
-        render :edit
-      end
-    end
-
     # DELETE /alerts/1
     def destroy
       @alert.destroy
@@ -49,14 +20,11 @@ module SP::Alerts
     end
 
     private
+    
       # Use callbacks to share common setup or constraints between actions.
       def set_alert
         @alert = Alert.find(params[:id])
       end
 
-      # Only allow a trusted parameter "white list" through.
-      def alert_params
-        params.require(:alert).permit(:source_id, :source_type, :target_id, :target_type, :source_url, :target_url, :message)
-      end
   end
 end

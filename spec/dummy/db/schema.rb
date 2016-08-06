@@ -15,14 +15,11 @@ ActiveRecord::Schema.define(version: 20160804205958) do
   create_table "alerts", force: :cascade do |t|
     t.integer  "source_id",                null: false
     t.string   "source_type",              null: false
-    t.string   "source_url",  default: "", null: false
     t.integer  "target_id",                null: false
     t.string   "target_type",              null: false
-    t.string   "target_url",  default: "", null: false
     t.string   "message",     default: "", null: false
     t.integer  "object_id"
     t.string   "object_type"
-    t.string   "object_url"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
