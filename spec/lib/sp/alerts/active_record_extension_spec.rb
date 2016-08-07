@@ -16,12 +16,14 @@ RSpec.describe SP::Alerts::ActiveRecordExtension do
     before(:all) { class ModelMock; include SP::Alerts::ActiveRecordExtension; end }
 
     it "includes the 'Alertable' module" do
+      expect(RecordMock.included_modules).not_to include(SP::Alerts::Alertable)
       RecordMock.alertable
       expect(RecordMock.included_modules).to include(SP::Alerts::Alertable)
       expect(ActiveRecord::Base.included_modules).not_to include(SP::Alerts::Alertable)
     end
 
     it "allows resource to be alerted" do
+      expect(ModelMock.new).not_to respond_to(:alert)
       ModelMock.alertable
       expect(ModelMock.new).to respond_to(:alert)
       expect(ModelMock).not_to respond_to(:alert)
