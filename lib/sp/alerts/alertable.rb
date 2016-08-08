@@ -1,20 +1,16 @@
 module SP::Alerts::Alertable
+  extend ActiveSupport::Concern
 
-  def alert(source, source_url, message, object = nil, object_url = nil)
+  def alert(source, message, object = nil)
     SP::Alerts::Alert.create(
       target: self,
-      target_url: self_url,
       source: source,
-      source_url: source_url,
       message: message,
-      object: object,
-      object_url: object_url)
+      object: object)
   end
 
-  private
-
-    def self_url
-      nil
-    end
+  included do
+    has_many :alerts, as: :target
+  end
 
 end

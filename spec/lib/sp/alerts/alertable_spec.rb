@@ -6,4 +6,10 @@ RSpec.describe SP::Alerts::Alertable do
       skip
     end
   end
+
+  describe "#alerts" do
+    it "returns the alerts targetting the resource" do
+      skip
+    end
+  end
 end
