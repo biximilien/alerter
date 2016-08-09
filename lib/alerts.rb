@@ -12,6 +12,7 @@ module SP
     module Messages
 
       autoload :Base, 'sp/alerts/messages/base'
+      autoload :Test, 'sp/alerts/messages/test'
       autoload :NewMessage, 'sp/alerts/messages/new_message'
       autoload :NewRequest, 'sp/alerts/messages/new_request'
       autoload :NewFollower, 'sp/alerts/messages/new_follower'

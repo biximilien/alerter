@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @model_mock.name %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @model_mock.content %>
+</p>
+
+<p>
+  <strong>Stuffable:</strong>
+  <%= @model_mock.stuffable %>
+</p>
+
+<%= link_to 'Edit', edit_model_mock_path(@model_mock) %> |
+<%= link_to 'Back', model_mocks_path %>

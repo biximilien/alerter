@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160804205958) do
+ActiveRecord::Schema.define(version: 20160809183615) do
 
   create_table "alerts", force: :cascade do |t|
     t.integer  "source_id",                null: false
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 20160804205958) do
     t.string   "object_type"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+  end
+
+  create_table "model_mocks", force: :cascade do |t|
+    t.string   "name"
+    t.text     "content"
+    t.boolean  "stuffable"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

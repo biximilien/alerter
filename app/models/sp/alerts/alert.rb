@@ -26,8 +26,8 @@ module SP::Alerts
       allow_blank: false
 
     def message
-      return '' if @message.nil?
-      Message.for(@message).new(@source, @target, @object).message
+      return '' if self[:message].nil? || self[:message] == ''
+      Message.for(self[:message]).new(source, target, object).message
     end
 
     alias_method :to_s, :message

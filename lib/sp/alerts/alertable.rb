@@ -1,12 +1,10 @@
 module SP::Alerts::Alertable
   extend ActiveSupport::Concern
 
-  def alert(source, message, object = nil)
-    SP::Alerts::Alert.create(
-      target: self,
-      source: source,
-      message: message,
-      object: object)
+  def alert(args = {})
+    SP::Alerts::Alert.create!(
+      args.slice(:source, :message, :object).merge(target: self).compact
+    )
   end
 
   included do

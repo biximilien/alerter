@@ -1,0 +1,32 @@
+<%= form_for(model_mock) do |f| %>
+  <% if model_mock.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(model_mock.errors.count, "error") %> prohibited this model_mock from being saved:</h2>
+
+      <ul>
+      <% model_mock.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+  </div>
+
+  <div class="field">
+    <%= f.label :stuffable %>
+    <%= f.check_box :stuffable %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

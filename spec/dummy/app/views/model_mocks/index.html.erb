@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Model Mocks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Content</th>
+      <th>Stuffable</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @model_mocks.each do |model_mock| %>
+      <tr>
+        <td><%= model_mock.name %></td>
+        <td><%= model_mock.content %></td>
+        <td><%= model_mock.stuffable %></td>
+        <td><%= link_to 'Show', model_mock %></td>
+        <td><%= link_to 'Edit', edit_model_mock_path(model_mock) %></td>
+        <td><%= link_to 'Destroy', model_mock, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Model Mock', new_model_mock_path %>
