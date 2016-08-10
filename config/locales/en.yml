@@ -14,6 +14,9 @@ en:
         # *object_url : url of the object resource                          #
         #####################################################################
 
+        test: >
+          This is a test message.
+
         new_follower: >
           [%{source}](%{source_url}) is now following you.
 

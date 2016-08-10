@@ -16,7 +16,7 @@ module SP::Alerts::Message
 
   attr_reader :source, :target, :object
 
-  def initialize(source, target, object)
+  def initialize(target, source, object)
     @source = source
     @source_url = source_url
     @target = target
@@ -27,6 +27,7 @@ module SP::Alerts::Message
 
   def message(text)
     markdown(I18n.translate(text,
+      scope: [:sp, :alerts, :messages],
       source: @source,
       source_url: @source_url,
       target: @target,

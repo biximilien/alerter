@@ -4,8 +4,14 @@ require File.expand_path('../../spec/dummy/config/environment', __FILE__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'spec_helper'
+# RSpec
 require 'rspec/rails'
+# Factory Girl
 require 'factory_girl_rails'
+# Capybara
+require 'capybara/rails'
+require 'capybara/rspec'
+
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -55,6 +61,10 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # Use the capybara dsl
+  config.include Capybara::DSL
+
 end
 
 # Shoulda Matchers

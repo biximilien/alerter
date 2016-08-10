@@ -27,7 +27,7 @@ module SP::Alerts
 
     def message
       return '' if self[:message].nil? || self[:message] == ''
-      Message.for(self[:message]).new(source, target, object).message
+      Message.for(self[:message]).new(target, source, object).message
     end
 
     alias_method :to_s, :message

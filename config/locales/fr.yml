@@ -14,11 +14,14 @@ fr:
         # *object_url : url of the object resource                          #
         #####################################################################
 
+        test: >
+          Ceci est un message de test.
+
         new_follower: >
           [%{source}](%{source_url}) vous suit.
 
         new_message: >
           [%{source}](%{source_url}) vous a envoyé un [%{object}](%{object_url}).
-          
+
         new_request: >
           [%{source}](%{source_url}) vous a fait une [%{object}](%{object_url}).
