@@ -33,7 +33,7 @@ module SP::Alerts::Message
       target_url: @target_url)).html_safe
   end
 
-  protected
+  private
 
     def markdown(text)
       @@markdown.render text

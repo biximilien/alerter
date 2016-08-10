@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe SP::Alerts::Alertable do
+  subject {FactoryGirl.create(:model_mock)}
 
   describe "#alert" do
-    subject { FactoryGirl.create(:model_mock) }
-
     it { should respond_to? :alert }
+    it { expect(subject).to respond_to :alert }
 
     it "creates an alert" do
       expect{
@@ -18,8 +18,7 @@ RSpec.describe SP::Alerts::Alertable do
   end
 
   describe "#alerts" do
-    it "returns the alerts targetting the resource" do
-      skip
-    end
+    it { should respond_to? :alerts }
+    it { expect(subject).to respond_to :alerts }
   end
 end
