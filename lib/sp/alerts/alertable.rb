@@ -8,7 +8,7 @@ module SP::Alerts::Alertable
   end
 
   included do
-    has_many :alerts, as: :target
+    has_many :alerts, as: :target, class_name: 'SP::Alerts::Alert'
   end
 
 end

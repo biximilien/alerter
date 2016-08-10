@@ -20,5 +20,11 @@ RSpec.describe SP::Alerts::Alertable do
   describe "#alerts" do
     it { should respond_to? :alerts }
     it { expect(subject).to respond_to :alerts }
+
+    it "returns the alerts for associated resource" do
+      @source = FactoryGirl.create(:model_mock)
+      @alerts = FactoryGirl.create_list(:alert, 10, target: subject, source: @source)
+      expect(subject.alerts).to match_array(@alerts)
+    end
   end
 end
