@@ -1,17 +1,17 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 # Maintain your gem's version:
-require "sp/alerts/version"
+require "alerter/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "alerts"
-  s.version     = SP::Alerts::VERSION
+  s.name        = "alerter"
+  s.version     = Alerter::VERSION
   s.authors     = ["Maxime 'biximilien' Gauthier"]
-  s.email       = ["maxime.gauthier88@gmail.com"]
-  s.homepage    = "http://www.example.com"
-  s.summary     = "Summary of SpAlerts."
-  s.description = "Description of SpAlerts."
+  s.email       = ["maxime@gauthier.software"]
+  s.homepage    = "http://gauthier.software/alerter"
+  s.summary     = "Alerter is a notification gem for Ruby on Rails."
+  s.description = "Alerter is a notification gem for Ruby on Rails."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]

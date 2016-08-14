@@ -1,3 +1,3 @@
-SP::Alerts::Engine.routes.draw do
+Alerter::Engine.routes.draw do
   resources :alerts, only: [ :index, :show, :destroy ]
 end

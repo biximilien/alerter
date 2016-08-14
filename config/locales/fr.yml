@@ -1,27 +1,26 @@
 # config/locales/fr.yml
 fr:
-  sp:
-    alerts:
-      messages:
+  alerter:
+    message:
 
-        #####################################################################
-        # Available parameters:                                             #
-        # source : resource triggering the alert                            #
-        # source_url : url of triggering ressource                          #
-        # target : resource receiving the alert                             #
-        # target_url : url of receiving ressource                           #
-        # *object : resource that may be the object of the alert (optional) #
-        # *object_url : url of the object resource                          #
-        #####################################################################
+      #####################################################################
+      # Available parameters:                                             #
+      # source : resource triggering the alert                            #
+      # source_url : url of triggering ressource                          #
+      # target : resource receiving the alert                             #
+      # target_url : url of receiving ressource                           #
+      # *object : resource that may be the object of the alert (optional) #
+      # *object_url : url of the object resource                          #
+      #####################################################################
 
-        test: >
-          Ceci est un message de test.
+      test: >
+        Ceci est un message de test.
 
-        new_follower: >
-          [%{source}](%{source_url}) vous suit.
+      new_follower: >
+        [%{source}](%{source_url}) vous suit.
 
-        new_message: >
-          [%{source}](%{source_url}) vous a envoyé un [%{object}](%{object_url}).
+      new_message: >
+        [%{source}](%{source_url}) vous a envoyé un [%{object}](%{object_url}).
 
-        new_request: >
-          [%{source}](%{source_url}) vous a fait une [%{object}](%{object_url}).
+      new_request: >
+        [%{source}](%{source_url}) vous a fait une [%{object}](%{object_url}).

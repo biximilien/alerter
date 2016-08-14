@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    alerts (0.1.0)
+    alerter (0.1.0)
       rails (~> 5.0.0)
       redcarpet
 
@@ -157,7 +157,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  alerts!
+  alerter!
   byebug
   capybara
   factory_girl_rails
