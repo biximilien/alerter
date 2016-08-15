@@ -10,8 +10,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Maxime 'biximilien' Gauthier"]
   s.email       = ["maxime@gauthier.software"]
   s.homepage    = "http://gauthier.software/alerter"
-  s.summary     = "Alerter is a notification gem for Ruby on Rails."
-  s.description = "Alerter is a notification gem for Ruby on Rails."
+  s.summary     = "Alerter is a notification plugin for Ruby on Rails."
+  s.description = "Alerter is a notification plugin for Ruby on Rails."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
