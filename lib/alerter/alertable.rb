@@ -1,14 +1,18 @@
-module Alerter::Alertable
-  extend ActiveSupport::Concern
+module Alerter
+  module Alertable
+    extend ActiveSupport::Concern
 
-  def alert(args = {})
-    Alerter::Alert.create!(
-      args.slice(:source, :message, :object).merge(target: self).compact
-    )
+    def alert source:, message:, object:
+      Alert.create!(
+        source: source,
+        message: message,
+        object: object,
+        target: self)
+    end
+
+    included do
+      has_many :alerts, as: :target, class_name: 'Alerter::Alert'
+    end
+
   end
-
-  included do
-    has_many :alerts, as: :target, class_name: 'Alerter::Alert'
-  end
-
 end
