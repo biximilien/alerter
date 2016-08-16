@@ -9,7 +9,8 @@ module Alerter
       polymorphic: true
 
     belongs_to :object,
-      polymorphic: true
+      polymorphic: true,
+      optional: true
 
     validates :source,
       presence: true
@@ -23,7 +24,8 @@ module Alerter
 
     validates :object,
       presence: false,
-      allow_blank: false
+      allow_blank: false,
+      allow_nil: true
 
     def message
       return '' if self[:message].nil? || self[:message] == ''

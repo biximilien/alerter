@@ -2,7 +2,7 @@ module Alerter
   module Alertable
     extend ActiveSupport::Concern
 
-    def alert source:, message:, object:
+    def alert source:, message:, object: nil
       Alert.create!(
         source: source,
         message: message,
