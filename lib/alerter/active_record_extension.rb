@@ -1,9 +1,11 @@
-module Alerter::ActiveRecordExtension
-  extend ActiveSupport::Concern
+module Alerter
+  module ActiveRecordExtension
+    extend ActiveSupport::Concern
 
-  class_methods do
-    def alertable
-      send(:include, Alerter::Alertable)
+    class_methods do
+      def alertable
+        send(:include, Alertable)
+      end
     end
   end
 end
