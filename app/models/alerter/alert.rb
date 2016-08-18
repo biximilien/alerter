@@ -28,8 +28,12 @@ module Alerter
       allow_nil: true
 
     def message
-      return '' if self[:message].nil? || self[:message] == ''
-      Message.for(self[:message]).new(target, source, object).message
+      return '' if self[:message].nil? || self[:message].blank?
+      Message.new(
+        target: target,
+        source: source,
+        object: object,
+        message: self[:message])
     end
 
     alias_method :to_s, :message

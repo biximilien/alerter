@@ -20,6 +20,5 @@ RSpec.describe Alerter do
       expect(RecordMock.included_modules).to include(Alerter::Alertable)
       expect(ActiveRecord::Base.included_modules).not_to include(Alerter::Alertable)
     end
-
   end
 end
