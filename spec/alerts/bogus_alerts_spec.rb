@@ -6,54 +6,66 @@ RSpec.describe BogusAlerts do
   end
 
   context BogusAlerts do
-    describe 'created' do
-      subject { BogusAlerts['created'] }
+    ['created', :created].each do |created|
+      describe created do
+        subject { BogusAlerts[created] }
 
-      it { expect(subject).not_to be_nil }
-      it { expect(subject).to be_a Proc }
-      it { expect(subject.call(@source, @target, @object)).to eq "#{@source} created #{@object}." }
+        it { expect(subject).not_to be_nil }
+        it { expect(subject).to be_a Proc }
+        it { expect(subject.call(@source, @target, @object)).to eq "#{@source} created #{@object}." }
+      end
     end
 
-    describe 'updated' do
-      subject { BogusAlerts['updated'] }
+    ['updated', :updated].each do |updated|
+      describe updated do
+        subject { BogusAlerts[updated] }
 
-      it { expect(subject).not_to be_nil }
-      it { expect(subject).to be_a Proc }
-      it { expect(subject.call(@source, @target, @object)).to eq "#{@source} updated #{@object}." }
+        it { expect(subject).not_to be_nil }
+        it { expect(subject).to be_a Proc }
+        it { expect(subject.call(@source, @target, @object)).to eq "#{@source} updated #{@object}." }
+      end
     end
 
-    describe 'deleted' do
-      subject { BogusAlerts['deleted'] }
+    ['deleted', :deleted].each do |deleted|
+      describe deleted do
+        subject { BogusAlerts[deleted] }
 
-      it { expect(subject).not_to be_nil }
-      it { expect(subject).to be_a Proc }
-      it { expect(subject.call(@source, @target, @object)).to eq "#{@source} deleted #{@object}." }
+        it { expect(subject).not_to be_nil }
+        it { expect(subject).to be_a Proc }
+        it { expect(subject.call(@source, @target, @object)).to eq "#{@source} deleted #{@object}." }
+      end
     end
   end
 
   context Alerter::Alerts do
-    describe 'bogus.created' do
-      subject { Alerter::Alerts['bogus.created'] }
+    [:"bogus.created", 'bogus.created'].each do |created|
+      describe created do
+        subject { Alerter::Alerts[created] }
 
-      it { expect(subject).not_to be_nil }
-      it { expect(subject).to be_a Proc }
-      it { expect(subject.call(@source, @target, @object)).to eq "#{@source} created #{@object}." }
+        it { expect(subject).not_to be_nil }
+        it { expect(subject).to be_a Proc }
+        it { expect(subject.call(@source, @target, @object)).to eq "#{@source} created #{@object}." }
+      end
     end
 
-    describe 'bogus.updated' do
-      subject { Alerter::Alerts['bogus.updated'] }
+    [:"bogus.updated", 'bogus.updated'].each do |updated|
+      describe updated do
+        subject { Alerter::Alerts[updated] }
 
-      it { expect(subject).not_to be_nil }
-      it { expect(subject).to be_a Proc }
-      it { expect(subject.call(@source, @target, @object)).to eq "#{@source} updated #{@object}." }
+        it { expect(subject).not_to be_nil }
+        it { expect(subject).to be_a Proc }
+        it { expect(subject.call(@source, @target, @object)).to eq "#{@source} updated #{@object}." }
+      end
     end
 
-    describe 'bogus.deleted' do
-      subject { Alerter::Alerts['bogus.deleted'] }
+    [:"bogus.deleted", 'bogus.deleted'].each do |deleted|
+      describe deleted do
+        subject { Alerter::Alerts[deleted] }
 
-      it { expect(subject).not_to be_nil }
-      it { expect(subject).to be_a Proc }
-      it { expect(subject.call(@source, @target, @object)).to eq "#{@source} deleted #{@object}." }
+        it { expect(subject).not_to be_nil }
+        it { expect(subject).to be_a Proc }
+        it { expect(subject.call(@source, @target, @object)).to eq "#{@source} deleted #{@object}." }
+      end
     end
   end
 end
