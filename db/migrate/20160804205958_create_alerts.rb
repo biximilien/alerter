@@ -11,7 +11,7 @@ class CreateAlerts < ActiveRecord::Migration[5.0]
       t.string  :target_type, null: false
 
       # message
-      t.string  :message,     null: false, default: ''
+      t.string  :key,         null: false, default: ''
 
       # (Optional) Associated ressource
       t.integer :object_id

@@ -1,13 +1,13 @@
 module Alerter
   RSpec.describe Message do
     subject do
-      Alerts.message(:test){"This is another test."}
+      Alerts.message(:test2){"This is another test."}
 
       Message.new(
         target: @target = FactoryGirl.build(:model_mock),
         source: @source = FactoryGirl.build(:model_mock),
         object: @object = FactoryGirl.build(:model_mock),
-        message: :test )
+        message: :test2 )
     end
 
     describe "#target" do

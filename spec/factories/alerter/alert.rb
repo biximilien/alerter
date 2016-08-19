@@ -4,7 +4,7 @@ module Alerter
       source { model_mock }
       target { model_mock }
       object { nil }
-      message { :test }
+      key { :test }
     end
   end
 end

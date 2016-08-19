@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20160809183615) do
     t.string   "source_type",              null: false
     t.integer  "target_id",                null: false
     t.string   "target_type",              null: false
-    t.string   "message",     default: "", null: false
+    t.string   "key",         default: "", null: false
     t.integer  "object_id"
     t.string   "object_type"
     t.datetime "created_at",               null: false

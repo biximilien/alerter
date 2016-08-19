@@ -18,7 +18,7 @@ module Alerter
     validates :target,
       presence: true
 
-    validates :message,
+    validates :key,
       presence: true,
       allow_blank: false
 
@@ -28,12 +28,12 @@ module Alerter
       allow_nil: true
 
     def message
-      return '' if self[:message].nil? || self[:message].blank?
+      return '' if key.nil? || key.blank?
       Message.new(
         target: target,
         source: source,
         object: object,
-        message: self[:message])
+        message: key)
     end
 
     alias_method :to_s, :message

@@ -10,7 +10,7 @@ module Alerter
         expect{
           subject.alert(
             source: FactoryGirl.create(:model_mock),
-            message: :test)
+            key: :test)
         }.to change(Alert, :count).by(1)
       end
     end
