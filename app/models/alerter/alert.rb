@@ -28,12 +28,7 @@ module Alerter
       allow_nil: true
 
     def message
-      return '' if key.nil? || key.blank?
-      Message.new(
-        target: target,
-        source: source,
-        object: object,
-        message: key)
+      Message.for(self).to_s
     end
 
     alias_method :to_s, :message

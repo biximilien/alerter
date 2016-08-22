@@ -16,5 +16,11 @@ module Alerter
     it { should validate_presence_of :key }
     it { should_not allow_value(nil).for(:key)}
     it { should_not allow_value('').for(:key)}
+
+    describe "#message" do
+      subject { FactoryGirl.create(:alert) }
+
+      it { expect(subject.message).to eq("This is a test.") }
+    end
   end
 end

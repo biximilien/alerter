@@ -1,8 +1,8 @@
 module Alerter
   FactoryGirl.define do
     factory :alert, class: Alert do
-      source { model_mock }
-      target { model_mock }
+      association :source, factory: :model_mock
+      association :target, factory: :model_mock
       object { nil }
       key { :test }
     end

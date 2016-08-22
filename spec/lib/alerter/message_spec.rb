@@ -1,20 +1,14 @@
 module Alerter
   RSpec.describe Message do
     subject do
-      Alerts.message(:test2){"This is another test."}
-
-      Message.new(
-        target: @target = FactoryGirl.build(:model_mock),
-        source: @source = FactoryGirl.build(:model_mock),
-        object: @object = FactoryGirl.build(:model_mock),
-        message: :test2 )
+      Message.for(FactoryGirl.create(:alert))
     end
 
     describe "#target" do
       it { should respond_to :target}
 
       it "returns the associated 'target'" do
-        expect(subject.target).to be_equal(@target)
+        expect(subject.target).not_to be_nil
       end
     end
 
@@ -22,23 +16,19 @@ module Alerter
       it { should respond_to :source}
 
       it "returns the associated 'source'" do
-        expect(subject.source).to be_equal(@source)
+        expect(subject.source).not_to be_nil
       end
     end
 
     describe "#object" do
       it { should respond_to :object}
-
-      it "returns the associated 'object'" do
-        expect(subject.object).to be_equal(@object)
-      end
     end
 
     describe "#message" do
       it { should respond_to :message }
 
       it "renders the alert message" do
-        expect(subject.message).to eq("This is another test.")
+        expect(subject.message).to eq("This is a test.")
       end
     end
   end

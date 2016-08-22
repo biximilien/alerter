@@ -1,17 +1,21 @@
 module Alerter
   class Message
 
-    attr_accessor :target, :source, :object
+    attr_accessor :source, :target, :object, :key
 
-    def initialize(target:, source:, object:, message:)
-      @target = target
+    def self.for(alert)
+      new(alert.source, alert.target, alert.object, alert.key)
+    end
+
+    def initialize(source, target, object, key)
       @source = source
+      @target = target
       @object = object
-      @message = Alerts[message]
+      @key = key
     end
 
     def message
-      @message.call(@target, @source, @object)
+      Alerts[@key].call(@source, @target, @object)
     end
 
     alias_method :to_s, :message
