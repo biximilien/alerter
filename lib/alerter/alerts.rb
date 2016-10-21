@@ -7,44 +7,38 @@ module Alerter
 
     def self.[] key
       key = key.to_s
-      if self == Alerts
-        if messages.key? key
-          messages[key]
-        else
-          if key.include?('.')
-            s, k = key.split('.')
-            s = "#{s}_alerts".camelize.constantize
-            if messages.key? s
-              messages[s][k]
-            else
-              raise "missing key: #{s} (subkey: #{k}) for #{self}"
-            end
-          else
-            raise "cannot handle key: #{key} for #{self}"
-          end
-        end
+      
+      if messages.key? key
+        messages[key]
       else
-        messages_for_self[key]
+        if key.include?('.')
+          s, k = key.split('.')
+          s = "#{s}_alerts".camelize.constantize
+          if _messages.key? s
+            _messages[s][k]
+          else
+            raise "missing key: #{s} (subkey: #{k}) for #{self}"
+          end
+        else
+          raise "cannot handle key: #{key} for #{self}"
+        end
       end
+
     end
 
     def self.message key, &block
       key = key.to_s
-      if self == Alerts
-        messages[key] = block
-      else
-        messages_for_self[key] = block
-      end
+      messages[key] = block
     end
 
     private
 
-      def self.messages_for_self
-        messages[self] ||= {}
+      def self._messages
+        @@messages ||= {}
       end
 
       def self.messages
-        @@messages ||= {}
+        _messages[self] ||= {}
       end
 
   end
