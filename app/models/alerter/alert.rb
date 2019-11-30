@@ -1,37 +1,38 @@
+# frozen_string_literal: true
+
 module Alerter
   class Alert < ApplicationRecord
-    self.table_name = "alerts"
+    self.table_name = 'alerts'
 
     belongs_to :source,
-      polymorphic: true
+               polymorphic: true
 
     belongs_to :target,
-      polymorphic: true
+               polymorphic: true
 
     belongs_to :object,
-      polymorphic: true,
-      optional: true
+               polymorphic: true,
+               optional: true
 
     validates :source,
-      presence: true
+              presence: true
 
     validates :target,
-      presence: true
+              presence: true
 
     validates :key,
-      presence: true,
-      allow_blank: false
+              presence: true,
+              allow_blank: false
 
     validates :object,
-      presence: false,
-      allow_blank: false,
-      allow_nil: true
+              presence: false,
+              allow_blank: false,
+              allow_nil: true
 
     def message
       Message.for(self).to_s
     end
 
-    alias_method :to_s, :message
-
+    alias to_s message
   end
 end

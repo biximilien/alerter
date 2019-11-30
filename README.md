@@ -59,7 +59,7 @@ end
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'alerts'
+gem 'alerter'
 ```
 
 And then execute:

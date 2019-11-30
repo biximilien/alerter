@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe ModelMockAlerts do
   context ModelMockAlerts do
     [:created, 'created'].each do |created|
@@ -6,7 +8,7 @@ RSpec.describe ModelMockAlerts do
 
         it { expect(subject).not_to be_nil }
         it { expect(subject).to be_a Proc }
-        it { expect(subject.call).to eq "A model mock was created." }
+        it { expect(subject.call).to eq 'A model mock was created.' }
       end
     end
 
@@ -16,7 +18,7 @@ RSpec.describe ModelMockAlerts do
 
         it { expect(subject).not_to be_nil }
         it { expect(subject).to be_a Proc }
-        it { expect(subject.call).to eq "A model mock was updated." }
+        it { expect(subject.call).to eq 'A model mock was updated.' }
       end
     end
 
@@ -26,7 +28,7 @@ RSpec.describe ModelMockAlerts do
 
         it { expect(subject).not_to be_nil }
         it { expect(subject).to be_a Proc }
-        it { expect(subject.call).to eq "A model mock was deleted." }
+        it { expect(subject.call).to eq 'A model mock was deleted.' }
       end
     end
   end
@@ -38,7 +40,7 @@ RSpec.describe ModelMockAlerts do
 
         it { expect(subject).not_to be_nil }
         it { expect(subject).to be_a Proc }
-        it { expect(subject.call).to eq "A model mock was created." }
+        it { expect(subject.call).to eq 'A model mock was created.' }
       end
     end
 
@@ -48,7 +50,7 @@ RSpec.describe ModelMockAlerts do
 
         it { expect(subject).not_to be_nil }
         it { expect(subject).to be_a Proc }
-        it { expect(subject.call).to eq "A model mock was updated." }
+        it { expect(subject.call).to eq 'A model mock was updated.' }
       end
     end
 
@@ -58,7 +60,7 @@ RSpec.describe ModelMockAlerts do
 
         it { expect(subject).not_to be_nil }
         it { expect(subject).to be_a Proc }
-        it { expect(subject.call).to eq "A model mock was deleted." }
+        it { expect(subject.call).to eq 'A model mock was deleted.' }
       end
     end
   end

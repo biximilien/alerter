@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Alerter
   FactoryBot.define do
     factory :alert, class: Alert do

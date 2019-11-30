@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe BogusAlerts do
   before :all do
     @source = FactoryBot.create(:model_mock)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Alerter do
@@ -11,7 +13,7 @@ RSpec.describe Alerter do
     end
   end
 
-  describe ".alertable" do
+  describe '.alertable' do
     before(:all) { class RecordMock < ApplicationRecord; end }
 
     it "includes the 'Alertable' module" do

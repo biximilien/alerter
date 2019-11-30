@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 module Alerter
   class Message
-
     attr_accessor :source, :target, :object, :key
 
     def self.for(alert)
@@ -18,7 +19,6 @@ module Alerter
       Alerts[@key].call(@source, @target, @object)
     end
 
-    alias_method :to_s, :message
-
+    alias to_s message
   end
 end

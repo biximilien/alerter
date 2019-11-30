@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 class CreateAlerts < ActiveRecord::Migration[5.0]
   def change
     create_table :alerts do |t|
-
       # Who triggered it
       t.integer :source_id,   null: false
       t.string  :source_type, null: false

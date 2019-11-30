@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ModelMocksController < ApplicationController
-  before_action :set_model_mock, only: [:show, :edit, :update, :destroy]
+  before_action :set_model_mock, only: %i[show edit update destroy]
 
   # GET /model_mocks
   def index
@@ -7,8 +9,7 @@ class ModelMocksController < ApplicationController
   end
 
   # GET /model_mocks/1
-  def show
-  end
+  def show; end
 
   # GET /model_mocks/new
   def new
@@ -16,8 +17,7 @@ class ModelMocksController < ApplicationController
   end
 
   # GET /model_mocks/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /model_mocks
   def create
@@ -46,13 +46,14 @@ class ModelMocksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_model_mock
-      @model_mock = ModelMock.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def model_mock_params
-      params.require(:model_mock).permit(:name, :content, :stuffable)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_model_mock
+    @model_mock = ModelMock.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def model_mock_params
+    params.require(:model_mock).permit(:name, :content, :stuffable)
+  end
 end

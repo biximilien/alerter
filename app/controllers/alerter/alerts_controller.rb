@@ -1,8 +1,10 @@
-require_dependency "alerter/application_controller"
+# frozen_string_literal: true
+
+require_dependency 'alerter/application_controller'
 
 module Alerter
   class AlertsController < ApplicationController
-    before_action :set_alert, only: [:show, :destroy]
+    before_action :set_alert, only: %i[show destroy]
 
     # GET /alerts
     def index
@@ -10,8 +12,7 @@ module Alerter
     end
 
     # GET /alerts/1
-    def show
-    end
+    def show; end
 
     # DELETE /alerts/1
     def destroy
@@ -21,10 +22,9 @@ module Alerter
 
     private
 
-      # Use callbacks to share common setup or constraints between actions.
-      def set_alert
-        @alert = Alert.find(params[:id])
-      end
-
+    # Use callbacks to share common setup or constraints between actions.
+    def set_alert
+      @alert = Alert.find(params[:id])
+    end
   end
 end

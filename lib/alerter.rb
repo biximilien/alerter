@@ -1,8 +1,9 @@
-require "alerter/engine"
-require "alerter/version"
+# frozen_string_literal: true
+
+require 'alerter/engine'
+require 'alerter/version'
 
 module Alerter
-
   autoload :Message,    'alerter/message'
   autoload :Alertable,  'alerter/alertable'
   autoload :Alerts,     'alerter/alerts'
@@ -14,5 +15,4 @@ module Alerter
       send(:include, Alertable)
     end
   end
-
 end

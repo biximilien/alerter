@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Alerter
   RSpec.describe Engine do
     it "isolates 'Alerter' namespace" do

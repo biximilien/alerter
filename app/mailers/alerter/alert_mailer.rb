@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 module Alerter
   class AlertMailer < ApplicationMailer
-
     def alert_email(user, alert)
       @user = user
       @alert = alert
@@ -9,13 +10,12 @@ module Alerter
 
     private
 
-      def subject
-        alert.message.subject
-      end
+    def subject
+      alert.message.subject
+    end
 
-      def body
-        alert.message.body
-      end
-
+    def body
+      alert.message.body
+    end
   end
 end

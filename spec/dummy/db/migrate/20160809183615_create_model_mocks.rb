@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateModelMocks < ActiveRecord::Migration[5.0]
   def change
     create_table :model_mocks do |t|

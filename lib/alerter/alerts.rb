@@ -1,13 +1,14 @@
+# frozen_string_literal: true
+
 module Alerter
   class Alerts
-
     def self.define
       yield self
     end
 
-    def self.[] key
+    def self.[](key)
       key = key.to_s
-      
+
       if messages.key? key
         messages[key]
       else
@@ -23,23 +24,21 @@ module Alerter
           raise "cannot handle key: #{key} for #{self}"
         end
       end
-
     end
 
-    def self.message key, &block
+    def self.message(key, &block)
       key = key.to_s
       messages[key] = block
     end
 
     private
 
-      def self._messages
-        @@messages ||= {}
-      end
+    def self._messages
+      @@messages ||= {}
+    end
 
-      def self.messages
-        _messages[self] ||= {}
-      end
-
+    def self.messages
+      _messages[self] ||= {}
+    end
   end
 end
