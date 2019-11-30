@@ -1,6 +1,7 @@
-# Alerts
+# Alerter
 
-A restful alert system for the SP project.
+A restful notification engine for Ruby on Rails originally developed for a
+social network project I was working on in college.
 
 ## Usage
 

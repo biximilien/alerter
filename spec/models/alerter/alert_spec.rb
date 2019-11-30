@@ -18,7 +18,7 @@ module Alerter
     it { should_not allow_value('').for(:key)}
 
     describe "#message" do
-      subject { FactoryGirl.create(:alert) }
+      subject { FactoryBot.create(:alert) }
 
       it { expect(subject.message).to eq("This is a test.") }
     end

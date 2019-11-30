@@ -1,8 +1,8 @@
 RSpec.describe BogusAlerts do
   before :all do
-    @source = FactoryGirl.create(:model_mock)
-    @target = FactoryGirl.create(:model_mock)
-    @object = FactoryGirl.create(:model_mock)
+    @source = FactoryBot.create(:model_mock)
+    @target = FactoryBot.create(:model_mock)
+    @object = FactoryBot.create(:model_mock)
   end
 
   context BogusAlerts do

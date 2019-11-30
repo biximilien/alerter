@@ -1,5 +1,5 @@
 module Alerter
-  FactoryGirl.define do
+  FactoryBot.define do
     factory :alert, class: Alert do
       association :source, factory: :model_mock
       association :target, factory: :model_mock

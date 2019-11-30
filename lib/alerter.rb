@@ -3,9 +3,9 @@ require "alerter/version"
 
 module Alerter
 
-  autoload :Message, 'alerter/message'
-  autoload :Alertable, 'alerter/alertable'
-  autoload :Alerts, 'alerter/alerts'
+  autoload :Message,    'alerter/message'
+  autoload :Alertable,  'alerter/alertable'
+  autoload :Alerts,     'alerter/alerts'
 
   extend ActiveSupport::Concern
 

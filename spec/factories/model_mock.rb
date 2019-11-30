@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :model_mock do
     name { "Stuff" }
     content { "Lorem Ipsum" }

@@ -1,7 +1,7 @@
 module Alerter
   RSpec.describe Message do
     subject do
-      Message.for(FactoryGirl.create(:alert))
+      Message.for(FactoryBot.create(:alert))
     end
 
     describe "#target" do
