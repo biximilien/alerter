@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   spec.metadata['yard.run'] = 'yri'
 
   spec.add_dependency 'rails'
-  spec.add_dependency 'redcarpet'
+  spec.add_dependency 'rpush'
 
   spec.add_development_dependency 'byebug'
   spec.add_development_dependency 'capybara'
